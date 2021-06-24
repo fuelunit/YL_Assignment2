@@ -1,7 +1,8 @@
 /*
     Author  : Yipeng Liu
-    Project : Assignment 2 - MyFile
-    Date    : 06/22/2021
+    Project : Assignment 2
+    Class   : MyFile
+    Date    : 06/24/2021
  */
 package edu.sjsu.assignment2;
 
@@ -19,6 +20,6 @@ public class MyFile {
      *                   created
      */
     public static void writePrimes(String inputFile, String outputFile) {
-        
+
     }
 }

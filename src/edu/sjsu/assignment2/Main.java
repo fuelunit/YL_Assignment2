@@ -1,7 +1,8 @@
 /*
     Author  : Yipeng Liu
     Project : Assignment 2
-    Date    : 06/22/2021
+    Class   : Main
+    Date    : 06/24/2021
  */
 package edu.sjsu.assignment2;
 
@@ -16,5 +17,6 @@ public class Main {
         index = MyRecursion.indexOf("Hello world", "wow");
         System.out.println(index);
         // MyFile
+        // MyTime
     }
 }
