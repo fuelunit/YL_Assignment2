@@ -18,5 +18,10 @@ public class Main {
         System.out.println(index);
         // MyFile
         // MyTime
+        MyTime.printTimeDifference("0120", "1510");
+        MyTime.printTimeDifference("1635", "0250");
+        MyTime.printTimeDifference("1820", "1810");
+        MyTime.printTimeDifference("1810", "1820");
+        MyTime.printTimeDifference("1810", "1810");
     }
 }

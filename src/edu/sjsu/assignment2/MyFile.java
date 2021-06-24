@@ -6,6 +6,8 @@
  */
 package edu.sjsu.assignment2;
 
+import java.util.Scanner;
+
 public class MyFile {
     /**
      * A public static method that takes two Strings for two filenames
