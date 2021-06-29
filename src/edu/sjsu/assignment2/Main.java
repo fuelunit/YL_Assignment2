@@ -6,6 +6,8 @@
  */
 package edu.sjsu.assignment2;
 
+import java.util.Scanner;
+
 public class Main {
     private static final String INPUT_FILE = "C:\\Users\\ethan" +
             "\\Documents\\Education\\SJSU\\Curriculum\\CS-49J" +
@@ -25,10 +27,20 @@ public class Main {
         // MyFile
         MyFile.writePrimes(INPUT_FILE, OUTPUT_FILE);
         // MyTime
-        MyTime.printTimeDifference("0120", "1510");
-        MyTime.printTimeDifference("1635", "0250");
-        MyTime.printTimeDifference("1820", "1810");
-        MyTime.printTimeDifference("1810", "1820");
-        MyTime.printTimeDifference("1810", "1810");
+        // ("0120", "1510") => 13 hour(s) 50 minute(s)
+        // ("1635", "0250") => 10 hour(s) 15 minute(s)
+        // ("1820", "1810") => 23 hour(s) 50 minute(s)
+        // ("1810", "1820") =>  0 hour(s) 10 minute(s)
+        // ("1810", "1810") =>  0 hour(s)  0 minute(s)
+        boolean done = false;
+        while (!done) {
+            MyTime.runMyTime();
+            System.out.print("Run MyTime Again? Enter 0 to continue " +
+                    "or anything else to exit: ");
+            Scanner scan = new Scanner(System.in);
+            if (!scan.nextLine().equals("0")) {
+                done = true;
+            }
+        }
     }
 }
