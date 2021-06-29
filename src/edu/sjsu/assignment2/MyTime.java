@@ -42,18 +42,17 @@ public class MyTime {
                     "minutes must be less than 60");
             return;
         }
-        // Making the secondHours always bigger than firstHours
-        if (firstHours > secondHours || (firstHours == secondHours
-                && firstMinutes > secondMinutes)) {
-            secondHours += 24;
-        }
         // Making the secondMinutes always bigger than firstMinutes
         if (firstMinutes > secondMinutes) {
             secondHours -= 1;
             secondMinutes += 60;
         }
+        // Making the secondHours always bigger than firstHours
+        if (firstHours > secondHours) {
+            secondHours += 24;
+        }
         // Differences in the hours part
-        Integer totalHours = secondHours - firstHours;
+        int totalHours = secondHours - firstHours;
         // Differences in the minutes part
         int totalMinutes = secondMinutes - firstMinutes;
         System.out.println(totalHours + " hour(s) " + totalMinutes + " minute(s)");

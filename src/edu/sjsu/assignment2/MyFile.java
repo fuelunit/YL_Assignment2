@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class MyFile {
     public static final int[] PRIME_ARRAY = {2, 3, 5, 7, 11, 13, 17,
@@ -34,9 +35,9 @@ public class MyFile {
             PrintWriter writer = new PrintWriter(outputFileName)) {
             // Reads the input file
             // For each line, use another scanner to scan each line
-            Scanner line = scanner.useDelimiter("\n");
-            // For each word, use another scanner to scan each word
-            Scanner word = line.useDelimiter(",");
+            // Scanner line = scanner.useDelimiter("[\n\r\s\t]");
+            // For each word, use a scanner to scan each word
+            Scanner word = scanner.useDelimiter("[,\n\r\s\t]");
             while (word.hasNext()) {
                 String currentWord = word.next();
                 if (isPrime(currentWord)) {
