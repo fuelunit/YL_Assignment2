@@ -6,9 +6,16 @@
  */
 package edu.sjsu.assignment2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class MyFile {
+    public static final int[] PRIME_ARRAY = {2, 3, 5, 7, 11, 13, 17,
+            19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73,
+            79, 83, 89, 97};
+
     /**
      * A public static method that takes two Strings for two filenames
      * as parameters. The first file contains lines of words or integers,
@@ -16,12 +23,59 @@ public class MyFile {
      * of a line). Read the first file, and write any prime numbers to the
      * second file, separate by a line.
      *
-     * @param inputFile A {@code String} for the full path to the input file
+     * @param inputFileName A {@code String} for the full path to the input file
      *
-     * @param outputFile A name {@code String} for the output file to be
-     *                   created
+     * @param outputFileName A name {@code String} for the output file to be
+     *                       created
      */
-    public static void writePrimes(String inputFile, String outputFile) {
+    public static void writePrimes(String inputFileName, String outputFileName) {
+        File inputFile = new File(inputFileName);
+        try (Scanner scanner = new Scanner(inputFile);
+            PrintWriter writer = new PrintWriter(outputFileName)) {
+            // Reads the input file
+            // For each line, use another scanner to scan each line
+            Scanner line = scanner.useDelimiter("\n");
+            // For each word, use another scanner to scan each word
+            Scanner word = line.useDelimiter(",");
+            while (word.hasNext()) {
+                String currentWord = word.next();
+                if (isPrime(currentWord)) {
+                    writer.println(currentWord);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }
+    }
 
+    /**
+     * A helper method that takes a {@code String} and
+     * check if it is a prime number.
+     *
+     * @param text An input {@code String}
+     *
+     * @return A boolean value
+     *
+     */
+    private static boolean isPrime(String text) {
+        int testNum;
+        // parseInt exception handling
+        try {
+            testNum = Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        // Loop through the PRIME_ARRAY to check for primes
+        for (int num : PRIME_ARRAY) {
+            if (testNum == num) {
+                return true;
+            } else if (testNum % num == 0) {
+                return false;
+            }
+        }
+        // After looping through the array, if we still have not
+        // found any match, we consider it a prime number for
+        // this method as we are not dealing with large numbers.
+        return true;
     }
 }
