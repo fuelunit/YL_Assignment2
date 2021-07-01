@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"edu.sjsu.assignment2","l":"Main"},{"p":"edu.sjsu.assignment2","l":"MyFile"},{"p":"edu.sjsu.assignment2","l":"MyRecursion"},{"p":"edu.sjsu.assignment2","l":"MySum"},{"p":"edu.sjsu.assignment2","l":"MyTime"}];updateSearchResults();
