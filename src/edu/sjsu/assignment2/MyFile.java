@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class MyFile {
     public static final int[] PRIME_ARRAY = {2, 3, 5, 7, 11, 13, 17,
@@ -67,16 +66,24 @@ public class MyFile {
             return false;
         }
         // Loop through the PRIME_ARRAY to check for primes
-        for (int num : PRIME_ARRAY) {
-            if (testNum == num) {
-                return true;
-            } else if (testNum % num == 0) {
-                return false;
-            }
-        }
+//        for (int num : PRIME_ARRAY) {
+//            if (testNum == num) {
+//                return true;
+//            } else if (testNum % num == 0) {
+//                return false;
+//            }
+//        }
+        // Deprecated:
         // After looping through the array, if we still have not
         // found any match, we consider it a prime number for
         // this method as we are not dealing with large numbers.
+
+        // new algorithm
+        for (int i = 2; i <= Math.sqrt(testNum); i++) {
+            if (testNum % i == 0) {
+                return false;
+            }
+        }
         return true;
     }
 }
