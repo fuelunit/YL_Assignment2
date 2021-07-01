@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class MyTime {
     /**
      * Gets the user input once
-     * @return
+     * @return A {@code String}
      */
-    private static String getUserTime() {
+    private static String getUserInput() {
         // Scans user input
         Scanner scan = new Scanner(System.in);
         return scan.nextLine();
@@ -61,11 +61,11 @@ public class MyTime {
         // Prompt
         System.out.print("Please enter the first time: ");
         // Validation
-        int firstTime = validateTime(getUserTime());
+        int firstTime = validateTime(getUserInput());
         // Prompt
         System.out.print("Please enter the second time: ");
         // Validation
-        int secondTime = validateTime(getUserTime());
+        int secondTime = validateTime(getUserInput());
         // Print time difference
         printTimeDifference(firstTime, secondTime);
     }
@@ -91,7 +91,7 @@ public class MyTime {
             return result;
         } catch (NumberFormatException e) {
             System.out.println("Invalid input! Program terminated!");
-            System.exit(-2);
+            System.exit(-3);
         }
         return -2;
     }
